@@ -7,7 +7,7 @@ import { useState, useMemo } from "react";
 import ThemeDiv from "../../components/UI/ThemeDiv/ThemeDiv";
 import CountrySelect from "../../components/CountrySelect/CountrySelect";
 import useSetBodyColor from "../../hooks/use-set-body-color";
-import { CircularProgress } from "@mui/material";
+import Loader from "../../components/UI/Loader/Loader";
 
 export default function HomePage() {
   useSetBodyColor();
@@ -28,7 +28,7 @@ export default function HomePage() {
   });
 
   if (isLoading) {
-    return <CircularProgress className="loader" />;
+    return <Loader />;
   }
 
   return (
@@ -39,7 +39,7 @@ export default function HomePage() {
       </div>
       <div className="cards">
         {regionFilteredCountries?.map((country: Country) => (
-          <CountryCard country={country} />
+          <CountryCard key={country?.name?.common} country={country} />
         ))}
       </div>
       {regionFilteredCountries?.length === 0 && <p className="cards__not-found">Countries were not found</p>}
