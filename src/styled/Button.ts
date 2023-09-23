@@ -8,4 +8,5 @@ export const Button = styled(MuiButton)(({ theme }) => ({
   fontWeight: "500",
   fontSize: "14px",
   textTransform: "none",
+  transition: "background-color 0s",
 }));
