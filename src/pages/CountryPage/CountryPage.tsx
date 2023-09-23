@@ -7,9 +7,11 @@ import { Country } from "../../types";
 import CountryDetail from "../../components/CountryDetail/CountryDetail";
 import useThemeContext from "../../hooks/use-theme-context";
 import { accessFirstObjKey } from "../../utils/helper";
+import useSetBodyColor from "../../hooks/use-set-body-color";
 
 export default function CountryPage() {
   const navigate = useNavigate();
+  useSetBodyColor();
   const country: Country = JSON.parse(localStorage.getItem("country") as string);
   const { themeClass, theme } = useThemeContext();
   const themeButtonColor = theme === "light" ? "#000" : "#fff";

@@ -6,8 +6,11 @@ import { Country } from "../../types";
 import { useState, useMemo } from "react";
 import ThemeDiv from "../../components/UI/ThemeDiv/ThemeDiv";
 import CountrySelect from "../../components/CountrySelect/CountrySelect";
+import useSetBodyColor from "../../hooks/use-set-body-color";
+import { CircularProgress } from "@mui/material";
 
 export default function HomePage() {
+  useSetBodyColor();
   const { isLoading, countriesData } = useFetchCountries();
   const [searchValue, setSearchValue] = useState<string>("");
   const [regionFilter, setRegionFilter] = useState<string>("");
@@ -23,6 +26,10 @@ export default function HomePage() {
     if (!regionFilter) return country;
     return country.region.toLowerCase() === regionFilter;
   });
+
+  if (isLoading) {
+    return <CircularProgress className="loader" />;
+  }
 
   return (
     <ThemeDiv>
