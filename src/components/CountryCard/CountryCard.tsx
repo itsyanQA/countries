@@ -12,8 +12,6 @@ type CountryCardProps = {
 export default function CountryCard({ country }: CountryCardProps) {
   const navigate = useNavigate();
   const { themeClass } = useThemeContext();
-  console.log(country.region);
-  
 
   const countryCardClickHandler = () => {
     localStorage.setItem("country", JSON.stringify(country));
