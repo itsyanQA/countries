@@ -4,8 +4,17 @@
   align-items: center;
   gap: 5px;
   cursor: pointer;
+  margin-right: 7%;
 
   &__text {
     font-weight: 600;
+
+    @media screen and (max-width: 600px) {
+      font-size: 15px;
+    }
+
+    @media screen and (max-width: 375px) {
+      font-size: 14px;
+    }
   }
 }
