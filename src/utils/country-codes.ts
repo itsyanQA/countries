@@ -187,4 +187,8 @@ export const COUNTRY_CCA3_CODES = {
   ZWE: "Zimbabwe",
   ZAF: "South Africa",
   SOM: "Somalia",
+  GUF: "French Guiana",
+  SUR: "Suriname",
+  URY: "Uruguay",
+  VEN: "Venezuela",
 };
