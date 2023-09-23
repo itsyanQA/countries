@@ -11,20 +11,18 @@ export default function HomePage() {
   const { isLoading, countriesData } = useFetchCountries();
   const [searchValue, setSearchValue] = useState<string>("");
   const [regionFilter, setRegionFilter] = useState<string>("");
-  
-  const countriesToRender = useMemo(() => {
+
+  const searchFilteredCountries = useMemo(() => {
     return countriesData?.filter((country) => {
       const regex = new RegExp(searchValue, "i");
       return regex.test(country?.name?.common);
     });
   }, [countriesData, searchValue]);
 
-  const filteredCountries = countriesToRender?.filter((country) => {
+  const regionFilteredCountries = searchFilteredCountries?.filter((country) => {
     if (!regionFilter) return country;
     return country.region.toLowerCase() === regionFilter;
   });
-
-
 
   return (
     <ThemeDiv>
@@ -33,11 +31,11 @@ export default function HomePage() {
         <CountrySelect regionFilter={regionFilter} setRegionFilter={setRegionFilter} />
       </div>
       <div className="cards">
-        {filteredCountries?.map((country: Country) => (
+        {regionFilteredCountries?.map((country: Country) => (
           <CountryCard country={country} />
         ))}
       </div>
-      {filteredCountries?.length === 0 && <p className="cards__not-found">Countries were not found</p>}
+      {regionFilteredCountries?.length === 0 && <p className="cards__not-found">Countries were not found</p>}
     </ThemeDiv>
   );
 }
