@@ -19,7 +19,12 @@ export default function CountryCard({ country }: CountryCardProps) {
   };
 
   return (
-    <div className={`country-card ${themeClass}`} onClick={countryCardClickHandler}>
+    <div
+      className={`country-card ${themeClass}`}
+      onClick={countryCardClickHandler}
+      tabIndex={0}
+      onKeyDown={(e) => (e.key === "Enter" ? countryCardClickHandler() : null)}
+    >
       <img src={country?.flags?.png} alt="" />
       <div className={`country-card__title-and-details-container ${themeClass}`}>
         <h2 className={`country-card__title ${themeClass}`}>{country?.name?.common}</h2>
