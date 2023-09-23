@@ -8,17 +8,26 @@ import CountryDetail from "../../components/CountryDetail/CountryDetail";
 import useThemeContext from "../../hooks/use-theme-context";
 import { accessFirstObjKey } from "../../utils/helper";
 import useSetBodyColor from "../../hooks/use-set-body-color";
+import { COUNTRY_CCA3_CODES } from "../../utils/country-codes";
+import { useFetchCountry } from "../../hooks/use-fetch-country";
+import Loader from "../../components/UI/Loader/Loader";
 
 export default function CountryPage() {
-  const navigate = useNavigate();
   useSetBodyColor();
-  const country: Country = JSON.parse(localStorage.getItem("country") as string);
+  const navigate = useNavigate();
+  const countryCode: string = window.location.href.split("/").at(-1) as string;
+  const { isLoading, countryInfo } = useFetchCountry(countryCode);
+  const country = countryInfo?.[0];
   const { themeClass, theme } = useThemeContext();
   const themeButtonColor = theme === "light" ? "#000" : "#fff";
   const buttonStyle = {
     color: theme === "light" ? "#000" : "#fff",
     backgroundColor: theme === "light" ? "#fff" : "var(--dark-blue)",
   };
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <ThemeDiv>
@@ -31,15 +40,15 @@ export default function CountryPage() {
         Back
       </Button>
       <section className="country-info">
-        <img src={country.flags.png} alt={`${country.name.common} flag`} />
+        <img src={country?.flags?.png} alt={`${country?.name?.common} flag`} />
         <div className="country-info__details">
-          <h2 className={themeClass}>{country.name.common}</h2>
+          <h2 className={`country-info__details__title ${themeClass}`}>{country?.name?.common}</h2>
           <div className="country-info__detail-container">
             <div className="country-info__detail-container__block">
               <CountryDetail title="Native Name" answer={country?.name?.official} />
               <CountryDetail
                 title="Population"
-                answer={country?.population.toLocaleString("en", { useGrouping: true })}
+                answer={country?.population?.toLocaleString("en", { useGrouping: true })}
               />
               <CountryDetail title="Region" answer={country?.region} />
               <CountryDetail title="Sub Region" answer={country?.subregion} />
@@ -57,6 +66,22 @@ export default function CountryPage() {
               />
             </div>
           </div>
+          {!!country?.borders?.length && (
+            <div className="country-info__borders">
+              <h2 className={themeClass}>Border Countries:</h2>
+              <div className="country-info__borders__border-countries">
+                {country?.borders?.map((border) => (
+                  <Button
+                    sx={{ color: buttonStyle, width: "auto", height: "25px" }}
+                    key={border}
+                    onClick={() => navigate(`/country/${border}`)}
+                  >
+                    {COUNTRY_CCA3_CODES[border as keyof typeof COUNTRY_CCA3_CODES]}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </ThemeDiv>
