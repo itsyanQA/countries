@@ -1,0 +1,33 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 50px;
+  row-gap: 150px;
+  column-gap: 25px;
+
+  @media screen and (max-width: 900px) {
+    justify-content: center;
+    column-gap: 25px;
+    row-gap: 35px;
+  }
+
+  &__not-found {
+    text-align: center;
+    color: rgba(196, 44, 44, 0.575);
+    font-weight: 700;
+  }
+}
+
+.filtering-container {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: 600px) {
+    padding-top: 30px;
+    justify-content: center;
+    flex-direction: column;
+    gap: 45px;
+  }
+}
