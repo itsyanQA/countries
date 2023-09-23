@@ -1,0 +1,24 @@
+div,
+header {
+  &.light-theme {
+    background-color: var(--white);
+  }
+
+  &.dark-theme {
+    background-color: var(--dark-blue);
+  }
+}
+
+h1,
+h2,
+p,
+span,
+button {
+  &.light-theme {
+    color: var(--very-dark-blue-2);
+  }
+
+  &.dark-theme {
+    color: var(--white);
+  }
+}
