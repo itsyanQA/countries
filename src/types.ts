@@ -4,6 +4,10 @@ export type Country = {
   region: string;
   capital: string[];
   flags: Flags;
+  subregion: string;
+  tld: string[];
+  languages: any;
+  currencies: any;
 };
 
 type Name = {
@@ -14,4 +18,9 @@ type Name = {
 type Flags = {
   png: string;
   svg: string;
+};
+
+export type Currency = {
+  name: string;
+  symbol: string;
 };
