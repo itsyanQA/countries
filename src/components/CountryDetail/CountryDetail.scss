@@ -1,0 +1,18 @@
+.detail {
+  display: flex;
+
+  & span {
+    font-size: 15px;
+  }
+
+  &__title {
+    font-weight: 600;
+    &::after {
+      content: "\00a0 ";
+    }
+  }
+
+  &__answer {
+    font-weight: 500;
+  }
+}
