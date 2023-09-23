@@ -1,7 +1,19 @@
-import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import ThemeContextProvider from "./contexts/theme-context";
+import CountryPage from "./pages/CountryPage/CountryPage";
+import Header from "./components/Header/Header";
 
 function App() {
-  return <h1>hi</h1>;
+  return (
+    <ThemeContextProvider>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="country/:country" element={<CountryPage />} />
+      </Routes>
+    </ThemeContextProvider>
+  );
 }
 
 export default App;
