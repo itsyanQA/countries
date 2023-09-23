@@ -25,8 +25,11 @@ Users should be able to:
 
 Web:
 
+![countries-web](https://github.com/itsyanQA/countries/assets/95849693/84bb36be-23d5-497e-a4ca-8486c386ccce)
+
 Mobile:
 
+![countries-mobile](https://github.com/itsyanQA/countries/assets/95849693/9b973286-5a82-437d-b294-964222ebaf51)
 
 
 ### Built with
