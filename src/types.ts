@@ -8,6 +8,8 @@ export type Country = {
   tld: string[];
   languages: any;
   currencies: any;
+  borders: string[];
+  cca3: string;
 };
 
 type Name = {
