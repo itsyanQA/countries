@@ -14,8 +14,7 @@ export default function CountryCard({ country }: CountryCardProps) {
   const { themeClass } = useThemeContext();
 
   const countryCardClickHandler = () => {
-    localStorage.setItem("country", JSON.stringify(country));
-    navigate(`/country/${country.name.common}`);
+    navigate(`/country/${country.cca3}`);
   };
 
   return (
