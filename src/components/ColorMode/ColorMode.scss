@@ -1,0 +1,11 @@
+.color-mode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+
+  &__text {
+    font-weight: 600;
+  }
+}
