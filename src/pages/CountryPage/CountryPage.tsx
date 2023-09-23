@@ -6,6 +6,7 @@ import "./CountryPage.scss";
 import { Country } from "../../types";
 import CountryDetail from "../../components/CountryDetail/CountryDetail";
 import useThemeContext from "../../hooks/use-theme-context";
+import { accessFirstObjKey } from "../../utils/helper";
 
 export default function CountryPage() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export default function CountryPage() {
   };
 
   return (
-    <ThemeDiv props={{ style: { height: "100vw" } }}>
+    <ThemeDiv>
       <Button
         startIcon={<ArrowIcon sx={{ color: themeButtonColor }} />}
         onClick={() => navigate("/")}
@@ -39,13 +40,19 @@ export default function CountryPage() {
                 answer={country?.population.toLocaleString("en", { useGrouping: true })}
               />
               <CountryDetail title="Region" answer={country?.region} />
-              <CountryDetail title="Sub Region" answer={undefined} />
+              <CountryDetail title="Sub Region" answer={country?.subregion} />
               <CountryDetail title="Capital" answer={country?.capital?.join(", ")} />
             </div>
             <div className="country-info__detail-container__block">
-              <CountryDetail title="Top Level Domain" answer={undefined} />
-              <CountryDetail title="Currencies" answer={undefined} />
-              <CountryDetail title="Languages" answer={undefined} />
+              <CountryDetail title="Top Level Domain" answer={country?.tld?.join(", ")} />
+              <CountryDetail
+                title="Currencies"
+                answer={country?.currencies?.[accessFirstObjKey(country?.currencies) || ""]?.name}
+              />
+              <CountryDetail
+                title="Languages"
+                answer={country?.languages?.[accessFirstObjKey(country?.languages) || ""]}
+              />
             </div>
           </div>
         </div>
