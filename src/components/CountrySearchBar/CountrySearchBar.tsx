@@ -2,6 +2,7 @@ import { Input as SearchBar } from "../../styled/Input";
 import SearchIcon from "@mui/icons-material/Search";
 import { Dispatch, SetStateAction } from "react";
 import useThemeContext from "../../hooks/use-theme-context";
+import { theme as muiTheme } from "../../style/theme";
 
 type CountrySearchBarProps = {
   searchValue: string;
@@ -39,6 +40,9 @@ export default function CountrySearchBar({ searchValue, setSearchValue }: Countr
         sx: {
           "&::placeholder": {
             color: textColor,
+            [muiTheme.breakpoints.down("sm")]: {
+              opacity: "100%",
+            },
           },
         },
       }}

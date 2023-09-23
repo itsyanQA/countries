@@ -16,7 +16,16 @@ export default function CountrySelect({ regionFilter, setRegionFilter }: Country
 
   return (
     <FormControl>
-      <InputLabel sx={{ color: fontColor, "&.MuiInputLabel-shrink": { top: "-7px" } }}>Filter by region</InputLabel>
+      <InputLabel
+        sx={{
+          color: fontColor,
+          fontWeight: "600",
+          "&.MuiInputLabel-shrink": { top: "-7px" },
+          "&.Mui-focused": { color: fontColor },
+        }}
+      >
+        Filter by Region
+      </InputLabel>
       <Filter
         value={regionFilter}
         onChange={(e) => setRegionFilter(e.target.value as string)}
