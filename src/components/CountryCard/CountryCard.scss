@@ -1,0 +1,30 @@
+.country-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  width: 310px;
+  box-shadow: 0px 0px 7px 2px hsl(0deg 0% 0% / 12%);
+  padding-bottom: 50px;
+  cursor: pointer;
+
+  &__title-and-details-container {
+    background-color: var(--white);
+    padding: 0 22px;
+  }
+
+  & img {
+    height: 140px;
+    border-radius: 5px 5px 0 0;
+  }
+
+  &__title {
+    font-size: 16px;
+    margin: 20px 0;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
