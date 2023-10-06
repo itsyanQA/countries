@@ -3,17 +3,20 @@ import SunIcon from "@mui/icons-material/LightModeOutlined";
 import "./ColorMode.scss";
 import useThemeContext from "../../hooks/use-theme-context";
 import { CSSProperties } from "react";
+import { Theme } from "../../contexts/theme-context";
 
 export default function ColorMode() {
   const { theme, setTheme, themeClass } = useThemeContext();
   const isLight: boolean = theme === "light";
+  const opposingTheme: Theme = isLight ? "dark" : "light";
 
   const colorModeClickHandler = (): void => {
-    if (theme === "light") {
+    if (isLight) {
       setTheme("dark");
     } else {
       setTheme("light");
     }
+    window.sessionStorage.setItem("theme", opposingTheme);
   };
 
   const colorModeIconStyle: CSSProperties = {
