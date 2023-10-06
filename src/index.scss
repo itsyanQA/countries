@@ -24,3 +24,13 @@ body {
   margin: 0 auto;
   min-height: 100vh;
 }
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
