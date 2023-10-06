@@ -191,4 +191,6 @@ export const COUNTRY_CCA3_CODES = {
   SUR: "Suriname",
   URY: "Uruguay",
   VEN: "Venezuela",
+  MAF: "Saint Martin",
+  SXM: "Sint Maarten",
 };
