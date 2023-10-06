@@ -5,6 +5,7 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 80px;
   margin: 50px 7% 0 7%;
+  animation: fadeInAnimation 0.5s ease-in;
 
   @media screen and (max-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
