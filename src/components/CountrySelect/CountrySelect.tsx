@@ -3,6 +3,7 @@ import { Filter } from "../../styled/Filter";
 import useThemeContext from "../../hooks/use-theme-context";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Dispatch, SetStateAction } from "react";
+import { theme as muiTheme } from "../../style/theme";
 
 type CountrySelectProps = {
   regionFilter: string;
@@ -15,7 +16,15 @@ export default function CountrySelect({ regionFilter, setRegionFilter }: Country
   const fontColor = theme === "light" ? "var(--dark-blue)" : "var(--white)";
 
   return (
-    <FormControl>
+    <FormControl
+      sx={{
+        marginRight: "7%",
+        [muiTheme.breakpoints.down("sm")]: { margin: "0" },
+        [muiTheme.breakpoints.down("md")]: {
+          margin: "0 0 0 7%",
+        },
+      }}
+    >
       <InputLabel
         sx={{
           color: fontColor,

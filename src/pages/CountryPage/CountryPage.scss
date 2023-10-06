@@ -1,9 +1,9 @@
 .back-button {
-  margin-top: 130px !important;
+  margin: 130px 0 0 7% !important;
 }
 
 .country-info {
-  margin-top: 60px;
+  margin: 60px 7% 0 7%;
   display: flex;
   justify-content: flex-start;
   gap: 120px;
@@ -11,6 +11,10 @@
   @media screen and (max-width: 900px) {
     flex-direction: column;
     gap: 60px;
+  }
+
+  @media screen and (max-width: 1200px) and (min-width: 900px) {
+    gap: 40px;
   }
 
   @media screen and (max-width: 900px) and (min-width: 600px) {
@@ -38,6 +42,10 @@
     display: flex;
     gap: 150px;
     margin-bottom: 50px;
+
+    @media screen and (max-width: 1200px) and (min-width: 900px) {
+      gap: 10px;
+    }
 
     @media screen and (max-width: 600px) {
       flex-direction: column;
